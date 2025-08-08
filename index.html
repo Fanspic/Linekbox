@@ -1,0 +1,61 @@
+<!-- Main Content -->
+    <div
+        class="min-h-screen flex flex-col items-center justify-center px-4 py-12"
+    >
+        <div
+            class="content-box rounded-2xl p-8 max-w-4xl w-full mx-auto text-center"
+        >
+            <h1 class="text-yellow-400 md:text-yellow-400 text-4xl md:text-5xl font-bold mb-6">
+                مرحبًا بكم هدية مجانية
+            </h1>
+            <p class="text-yellow-400 md:text-yellow-400 text-lg md:text-xl mb-8 leading-relaxed">
+                اكثر من 50 الف ملف حصري مجاني فقط قم بنقر على مشاهدة مجانية
+            </p>
+
+            <div class="mt-12">
+                <a
+                    href="https://yshorten.com/qbjGQnr"
+                    class="watch-now-btn inline-block bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 font-bold py-4 px-8 rounded-full text-lg shadow-lg transform hover:scale-105 transition duration-300"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >مشاهدة الآن
+                    <i class="fas fa-play ml-2"></i></a
+                >
+            </div>
+        </div>
+
+        <div class="mt-16 text-sm opacity-80">
+            <p>© 2023 معرض الصور المتحرك. جميع الحقوق محفوظة.</p>
+        </div>
+    </div>
+
+    <script>
+        // Background slideshow animation
+        document.addEventListener("DOMContentLoaded", function () {
+            const images = document.querySelectorAll(".bg-slideshow img");
+            let current = 0;
+
+            function nextImage() {
+                images[current].classList.remove("active");
+                current = (current + 1) % images.length;
+                images[current].classList.add("active");
+
+                // Reset animation for the new active image
+                images[current].style.animation = "none";
+                void images[current].offsetWidth; // Trigger reflow
+                images[current].style.animation =
+                    "fadeIn 2s ease-in-out forwards, zoomIn 20s linear infinite";
+            }
+
+            // Change image every 5 seconds
+            setInterval(nextImage, 5000);
+
+            // Preload all images
+            images.forEach((img) => {
+                const temp = new Image();
+                temp.src = img.src;
+            });
+        });
+    </script>
+</body>
+</html>
